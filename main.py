@@ -63,7 +63,7 @@ def user_name():
     if password != verify:
         error = "please verify your password"
         return render_template('singup.html' , v_error = error,user = user_name,e_mail = email)
-    if (email.count('@') >1 or email.count('.') > 1 or (len(email) > 20 or len(email) <= 3)):
+    if ((email.count('@') >1 or email.count('@') <1 ) or (email.count('.') > 1 or email.count('.') < 1 ) or (len(email) > 20 or (len(email) >0 and len(email) <= 3))):
         error = "email address is not valid"
         return render_template('singup.html' , e_error = error)
 
